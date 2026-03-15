@@ -1,79 +1,74 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бизнес-английский без скуки: говорим, играем, общаемся, растём</title>
-    
-    <!-- Подключение Tailwind CSS -->
+    <title>Business English Without Boredom: Speak, Play, Connect, Grow</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Определение новой цветовой палитры (Лиловый, Бордовый, Бежевый) */
         :root {
-            --color-dark-primary: #6b4d6b;     /* Deep Mauve/Purple (Глубокий лиловый) */
-            --color-secondary-dark: #814f62;   /* Muted Burgundy/Plum (Приглушенный бордовый) */
-            --color-light-bg: #f8f0f0;         /* Very Light Pink/Beige (Очень светлый фон) */
-            --color-accent-strong: #9d3f56;    /* Strong Red-Purple (Сильный акцент для кнопок) */
-            --color-text-dark: #333333;        /* Темный текст */
+            --color-ink: #111111;
+            --color-paper: #f7f5f0;
+            --color-paper-2: #ece7de;
+            --color-accent: #c9252d;
+            --color-accent-dark: #8f1c22;
+            --color-border: #d7d0c6;
+            --color-muted: #5e5a54;
         }
-        
-        /* Базовые стили */
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--color-light-bg);
-            color: var(--color-text-dark);
+            background-color: var(--color-paper);
+            color: var(--color-ink);
         }
-        
-        /* Пользовательские классы */
-        .primary-bg { background-color: var(--color-dark-primary); } 
-        .accent-text-secondary { color: var(--color-secondary-dark); } 
-        .accent-strong-bg { background-color: var(--color-accent-strong); }
+
+        h1, h2, h3, h4, .brand-serif {
+            font-family: Georgia, 'Times New Roman', serif;
+            letter-spacing: -0.02em;
+        }
+
+        .primary-bg { background-color: var(--color-ink); }
+        .accent-text-secondary { color: var(--color-accent); }
+        .accent-strong-bg { background-color: var(--color-accent); }
         .card-bg { background-color: #ffffff; }
-        .section-bg-secondary { background-color: var(--color-secondary-dark); }
+        .section-bg-secondary { background-color: var(--color-paper-2); }
 
-        /* Градиент для секции Hero */
         .hero-gradient {
-            background-image: linear-gradient(145deg, var(--color-dark-primary) 0%, var(--color-secondary-dark) 100%);
+            background: linear-gradient(180deg, #f7f5f0 0%, #efe9df 100%);
+            color: var(--color-ink);
+            border-bottom: 1px solid var(--color-border);
         }
-        /* Градиент для кнопок (Яркий, контрастный акцент) */
+
         .btn-gradient {
-            background-image: linear-gradient(to right, var(--color-accent-strong), #c55a3f);
+            background: var(--color-accent);
         }
 
-        /* Стиль для заголовка: БЕЛЫЙ текст в ЧЕРНОЙ обводке */
         .text-stroke {
-            color: white; 
-            text-shadow: 
-                -1.5px -1.5px 0 #000,  
-                1.5px -1.5px 0 #000,
-                -1.5px 1.5px 0 #000,
-                1.5px 1.5px 0 #000;
-            -webkit-text-stroke: 1.5px black;
-            text-stroke: 1.5px black;
+            color: var(--color-ink);
+            text-shadow: none;
+            -webkit-text-stroke: 0;
+            text-stroke: 0;
         }
 
-        /* Эффект при наведении для кнопок */
         .btn-hover:hover {
-            box-shadow: 0 12px 25px -3px rgba(157, 63, 86, 0.4), 0 4px 6px -2px rgba(157, 63, 86, 0.2);
-            transform: translateY(-3px);
-            transition: all 0.3s ease-in-out;
+            box-shadow: 0 10px 24px -10px rgba(201, 37, 45, 0.35);
+            transform: translateY(-2px);
+            transition: all 0.25s ease-in-out;
+            background: var(--color-accent-dark);
         }
 
-        /* Переопределение цвета границ карточек */
-        .card-border-accent { border-top-color: var(--color-accent-strong); }
-        .card-border-secondary { border-top-color: var(--color-secondary-dark); }
-        
-        /* Стиль для маркированного списка */
+        .card-border-accent { border-top-color: var(--color-accent); }
+        .card-border-secondary { border-top-color: var(--color-ink); }
+
         .custom-list li::before {
-            content: "\2022"; 
-            color: var(--color-accent-strong); 
+            content: "■";
+            color: var(--color-accent);
             font-weight: bold;
             display: inline-block;
             width: 1em;
             margin-left: -1em;
         }
 
-        /* Стили для Слот-Машины */
         .slot-reel {
             display: inline-block;
             width: 80px;
@@ -81,12 +76,27 @@
             line-height: 80px;
             font-size: 48px;
             text-align: center;
-            border-radius: 12px;
-            background-color: #e0e0e0;
+            border-radius: 0;
+            background-color: #ffffff;
             margin: 0 4px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+            border: 1px solid var(--color-border);
+            box-shadow: none;
             overflow: hidden;
             transition: background-color 0.2s;
+        }
+
+        .economist-card {
+            border: 1px solid var(--color-border);
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .economist-rule {
+            border-top: 3px solid var(--color-accent);
+        }
+
+        .muted-text {
+            color: var(--color-muted);
         }
     </style>
     <script>
@@ -105,365 +115,351 @@
 </head>
 <body class="text-gray-800">
 
-    <!-- 1. Навигационная панель (Шапка) - СДЕЛАНО STICKY (Привязана к верху) -->
     <header class="primary-bg text-white shadow-xl sticky top-0 z-50">
         <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tight">
-                <span class="accent-text-secondary text-xl">Business</span><span class="text-white">Pro</span>
+            <div class="text-2xl font-bold tracking-tight brand-serif uppercase">
+                <span class="text-white">Business Review English</span>
             </div>
-            <!-- Расширенное меню навигации -->
             <nav class="hidden lg:flex space-x-6 font-medium items-center text-sm">
-                <a href="#goals" class="hover:text-custom-secondary-dark transition duration-300">Навыки</a>
-                <a href="#formats" class="hover:text-custom-secondary-dark transition duration-300">Форматы</a>
-                <a href="#teachers" class="hover:text-custom-secondary-dark transition duration-300">Преподаватели</a>
-                <a href="#pricing" class="hover:text-custom-secondary-dark transition duration-300">Цены</a>
-                <a href="#corporate" class="hover:text-custom-secondary-dark transition duration-300">Корпоратив</a>
-                <a href="#game" class="hover:text-custom-secondary-dark transition duration-300">Бонус!</a>
-                <a href="#reviews" class="hover:text-custom-secondary-dark transition duration-300">Отзывы</a>
-                <a href="#contact" class="btn-gradient py-2 px-4 rounded-full btn-hover font-semibold">Записаться</a>
+                <a href="#goals" class="hover:text-custom-secondary-dark transition duration-300">Skills</a>
+                <a href="#formats" class="hover:text-custom-secondary-dark transition duration-300">Formats</a>
+                <a href="#teachers" class="hover:text-custom-secondary-dark transition duration-300">Teachers</a>
+                <a href="#pricing" class="hover:text-custom-secondary-dark transition duration-300">Pricing</a>
+                <a href="#corporate" class="hover:text-custom-secondary-dark transition duration-300">Corporate</a>
+                <a href="#game" class="hover:text-custom-secondary-dark transition duration-300">Bonus!</a>
+                <a href="#reviews" class="hover:text-custom-secondary-dark transition duration-300">Reviews</a>
+                <a href="#contact" class="btn-gradient py-2 px-4 rounded-full btn-hover font-semibold">Join Now</a>
             </nav>
             <div class="lg:hidden">
-                <!-- Простое меню-бургер для мобильных -->
-                <button class="text-white focus:outline-none">&#9776; Меню</button>
+                <button class="text-white focus:outline-none">&#9776; Menu</button>
             </div>
         </div>
     </header>
 
-    <!-- 2. Секция Героя (Hero) -->
-    <section class="hero-gradient text-white py-20 md:py-32 relative overflow-hidden" id="hero">
+    <section class="hero-gradient py-20 md:py-28 relative overflow-hidden" id="hero">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between relative z-10">
             <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-stroke">
-                    Бизнес-английский без скуки: говорим, играем, общаемся, растём
+                    Business English Without Boredom: Speak, Play, Connect, Grow
                 </h1>
-                <p class="mt-4 text-xl font-light opacity-90 text-gray-200">
-                    Добро пожаловать туда, где бизнес-английский перестаёт быть «сухими терминами» и превращается в живое, яркое, интерактивное общение.
+                <p class="mt-4 text-xl font-light muted-text">
+                    Welcome to the place where Business English stops feeling like dry terminology and turns into lively, colorful, interactive communication.
                 </p>
                 <a href="#contact" class="inline-block mt-8 text-lg font-semibold btn-gradient text-white py-3 px-8 rounded-full shadow-xl btn-hover">
-                    Начать интерактивное обучение!
+                    Start Interactive Learning!
                 </a>
             </div>
             <div class="md:w-1/3 flex justify-center">
-                <img src="https://placehold.co/400x400/6b4d6b/f8f0f0?text=Business+Pro" alt="Фото Репетитора Бизнес-английского"
-                     class="rounded-full border-4 border-custom-accent-strong shadow-2xl w-64 h-64 md:w-80 md:h-80 object-cover transform hover:scale-105 transition duration-500">
+                <div class="w-72 md:w-96 bg-white border border-[var(--color-border)] shadow-xl">
+                    <div class="bg-[var(--color-accent)] text-white px-4 py-3 brand-serif text-2xl font-bold uppercase tracking-wide">
+                        Business Review
+                    </div>
+                    <div class="p-5 bg-[var(--color-paper)]">
+                        <div class="text-xs uppercase tracking-[0.2em] muted-text mb-3">Weekly brief</div>
+                        <h3 class="brand-serif text-3xl font-bold leading-tight mb-4">Business English for people who need results, not classroom wallpaper.</h3>
+                        <div class="border-t border-[var(--color-border)] pt-4 space-y-3 text-sm text-gray-700">
+                            <p><span class="font-semibold">Meetings.</span> Presentations. Negotiations. Emails that do not sound like translation software wearing a tie.</p>
+                            <p><span class="font-semibold">Interactive lessons.</span> Real cases. Smart tools. Strong speaking practice.</p>
+                        </div>
+                        <div class="mt-5 grid grid-cols-3 gap-2">
+                            <div class="h-20 bg-[var(--color-ink)]"></div>
+                            <div class="h-20 bg-[var(--color-accent)]"></div>
+                            <div class="h-20 bg-[var(--color-paper-2)] border border-[var(--color-border)]"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. Секция Целей Обучения (Навыки) -->
-    <section class="py-16 md:py-24 bg-white" id="goals">
+    <section class="py-16 md:py-24 bg-white economist-rule" id="goals">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-12">
-                Мы обучаем так, чтобы вы:
+                We teach so that you can:
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <div class="p-6 border-t-4 card-border-accent bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center">
+                <div class="p-6 border-t-4 card-border-accent bg-white rounded-lg economist-card transition duration-300 text-center">
                     <div class="text-4xl accent-text-secondary mb-4">&#128266;</div>
-                    <h3 class="text-xl font-semibold mb-3">Говорили уверенно</h3>
-                    <p class="text-gray-700">На встречах, презентациях и важных переговорах.</p>
+                    <h3 class="text-xl font-semibold mb-3">Speak Confidently</h3>
+                    <p class="text-gray-700">In meetings, presentations, and important negotiations.</p>
                 </div>
 
                 <div class="p-6 border-t-4 card-border-secondary bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center">
                     <div class="text-4xl accent-text-secondary mb-4">&#9999;&#65039;</div>
-                    <h3 class="text-xl font-semibold mb-3">Писали профессионально</h3>
-                    <p class="text-gray-700">Чётко и грамотно в любой деловой переписке.</p>
+                    <h3 class="text-xl font-semibold mb-3">Write Professionally</h3>
+                    <p class="text-gray-700">Clearly and accurately in any business correspondence.</p>
                 </div>
 
                 <div class="p-6 border-t-4 card-border-accent bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center">
                     <div class="text-4xl accent-text-secondary mb-4">&#128200;</div>
-                    <h3 class="text-xl font-semibold mb-3">Презентовали ярко</h3>
-                    <p class="text-gray-700">Убеждали аудиторию и добивались своих целей.</p>
+                    <h3 class="text-xl font-semibold mb-3">Present Effectively</h3>
+                    <p class="text-gray-700">Win over your audience and reach your goals.</p>
                 </div>
 
                 <div class="p-6 border-t-4 card-border-secondary bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 text-center">
                     <div class="text-4xl accent-text-secondary mb-4">&#128522;</div>
-                    <h3 class="text-xl font-semibold mb-3">Не скучали</h3>
-                    <p class="text-gray-700">Потому что каждое занятие — это живое общение!</p>
+                    <h3 class="text-xl font-semibold mb-3">Enjoy the Process</h3>
+                    <p class="text-gray-700">Because every lesson is real communication, not sleepy textbook fog.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- 4. Секция Форматов Занятий (Микс) -->
-    <section class="py-16 md:py-24 primary-bg text-white" id="formats">
+
+    <section class="py-16 md:py-24 section-bg-secondary economist-rule" id="formats">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold mb-12">
-                Каждое занятие — это микс:
+                Every lesson is a mix of:
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <div class="p-6 section-bg-secondary rounded-lg shadow-xl border-b-4 border-custom-accent-strong">
+                <div class="p-6 bg-white economist-card border-b-4 border-custom-accent-strong">
                     <div class="text-4xl text-white mb-4">&#128101;</div>
-                    <h3 class="text-xl font-semibold mb-2">Интерактивные Симуляции</h3>
-                    <p class="text-gray-200 text-sm">Реальные рабочие ситуации, где нужно действовать и принимать решения.</p>
+                    <h3 class="text-xl font-semibold mb-2">Interactive Simulations</h3>
+                    <p class="text-gray-600 text-sm">Real workplace situations where you need to act, respond, and make decisions.</p>
                 </div>
 
-                <div class="p-6 section-bg-secondary rounded-lg shadow-xl border-b-4 border-custom-accent-strong">
+                <div class="p-6 bg-white economist-card border-b-4 border-custom-accent-strong">
                     <div class="text-4xl text-white mb-4">&#127918;</div>
-                    <h3 class="text-xl font-semibold mb-2">Командные Игры</h3>
-                    <p class="text-gray-200 text-sm">Изучение лексики через командные игры и челленджи.</p>
+                    <h3 class="text-xl font-semibold mb-2">Team Games</h3>
+                    <p class="text-gray-600 text-sm">Vocabulary and communication practice through challenges and playful competition.</p>
                 </div>
 
-                <div class="p-6 section-bg-secondary rounded-lg shadow-xl border-b-4 border-custom-accent-strong">
+                <div class="p-6 bg-white economist-card border-b-4 border-custom-accent-strong">
                     <div class="text-4xl text-white mb-4">&#129505;</div>
-                    <h3 class="text-xl font-semibold mb-2">Цифровые Инструменты и AI</h3>
-                    <p class="text-gray-200 text-sm">Использование современных технологий для ускорения обучения.</p>
+                    <h3 class="text-xl font-semibold mb-2">Digital Tools and AI</h3>
+                    <p class="text-gray-600 text-sm">Modern technology that helps learning move faster and stick better.</p>
                 </div>
 
-                <div class="p-6 section-bg-secondary rounded-lg shadow-xl border-b-4 border-custom-accent-strong">
+                <div class="p-6 bg-white economist-card border-b-4 border-custom-accent-strong">
                     <div class="text-4xl text-white mb-4">&#128172;</div>
-                    <h3 class="text-xl font-semibold mb-2">Разговорные Практики</h3>
-                    <p class="text-gray-200 text-sm">Общение в стиле «как это бывает в реальном офисе».</p>
+                    <h3 class="text-xl font-semibold mb-2">Speaking Practice</h3>
+                    <p class="text-gray-600 text-sm">Communication that feels like real office life, not a plastic role-play museum.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. Секция Преподавателей (Teachers) -->
-    <section class="py-16 md:py-24 bg-white" id="teachers">
+    <section class="py-16 md:py-24 bg-white economist-rule" id="teachers">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-6">
-                Преподаватели: наш ключевой актив
+                Teachers: Our Key Strength
             </h2>
             <p class="text-xl text-center mb-12 text-gray-700 max-w-3xl mx-auto">
-                Наши преподаватели — это команда профессионалов, которые умеют сочетать серьёзные навыки деловой коммуникации с современными технологиями и по-настоящему увлекательными форматами занятий.
+                Our teachers are professionals who combine serious business communication skills with modern technology and genuinely engaging lesson formats.
             </p>
-            
+
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-                
-                <!-- Список квалификаций -->
                 <div class="space-y-4 text-lg list-none pl-0 custom-list mx-auto lg:mx-0 max-w-md">
-                    <h3 class="text-2xl font-semibold accent-text-secondary mb-4">Наши требования:</h3>
-                    <p class="text-gray-700 mb-4">Потому что они не просто «знают английский»:</p>
+                    <h3 class="text-2xl font-semibold accent-text-secondary mb-4">What we look for:</h3>
+                    <p class="text-gray-700 mb-4">Because they do more than simply “know English”:</p>
                     <ul class="space-y-4">
                         <li class="pl-4 text-gray-700">
-                            <span class="font-semibold accent-text-secondary">Международные сертификаты:</span> CELTA/TEFL/TESOL и др.
+                            <span class="font-semibold accent-text-secondary">International teaching certificates:</span> CELTA, TEFL, TESOL, and more.
                         </li>
                         <li class="pl-4 text-gray-700">
-                            <span class="font-semibold accent-text-secondary">Сертификаты Business English:</span> Официальное подтверждение компетенции.
+                            <span class="font-semibold accent-text-secondary">Business English credentials:</span> Official proof of professional competence.
                         </li>
                         <li class="pl-4 text-gray-700">
-                            <span class="font-semibold accent-text-secondary">Опыт в сфере бизнеса:</span> Образование в области экономики, менеджмента и международного бизнеса.
+                            <span class="font-semibold accent-text-secondary">Business background:</span> Education in economics, management, and international business.
                         </li>
                         <li class="pl-4 text-gray-700">
-                            <span class="font-semibold accent-text-secondary">Мастера интерактивности:</span> Умеют превращать скучные темы в живые, понятные и атмосферные уроки.
+                            <span class="font-semibold accent-text-secondary">Masters of interaction:</span> They know how to turn dry topics into lively, clear, memorable lessons.
                         </li>
                     </ul>
                 </div>
 
-                <!-- Блок с призывом -->
-                <div class="bg-gray-100 p-8 rounded-xl shadow-inner border-l-4 border-custom-secondary-dark">
-                    <h3 class="text-2xl font-bold mb-4 accent-text-secondary">Найдите своего идеального ментора</h3>
+                <div class="bg-[var(--color-paper)] p-8 economist-card border-l-4 border-custom-secondary-dark">
+                    <h3 class="text-2xl font-bold mb-4 accent-text-secondary">Find Your Ideal Mentor</h3>
                     <p class="text-lg text-gray-700 mb-6">
-                        Мы подберем преподавателя, специализирующегося именно в вашей отрасли, чтобы вы с первого занятия говорили о релевантных для вас темах.
+                        We will match you with a teacher who understands your field, so from lesson one you can talk about topics that actually matter to your work.
                     </p>
                     <a href="#contact" class="inline-block w-full text-center font-semibold btn-gradient text-white py-3 px-8 rounded-lg shadow-md btn-hover">
-                        Обсудить подбор преподавателя
+                        Discuss Teacher Matching
                     </a>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- 6. Секция Цены (Pricing) -->
-    <section class="py-16 md:py-24 section-bg-secondary text-white" id="pricing">
+    <section class="py-16 md:py-24 section-bg-secondary economist-rule" id="pricing">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold mb-12">
-                Выберите свой формат обучения
+                Choose Your Learning Format
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Тариф 1: Индивидуальный -->
-                <div class="bg-white text-gray-800 p-8 rounded-xl shadow-2xl border-t-4 border-custom-accent-strong transform hover:scale-105 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-4 accent-text-secondary">Индивидуальный</h3>
-                    <p class="text-4xl font-extrabold mb-6">30$ <span class="text-lg font-normal">/ 60 мин</span></p>
+                <div class="bg-white text-gray-800 p-8 economist-card border-t-4 border-custom-accent-strong transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4 accent-text-secondary">One-to-One</h3>
+                    <p class="text-4xl font-extrabold mb-6">30$ <span class="text-lg font-normal">/ 60 min</span></p>
                     <ul class="text-left space-y-3 mb-8 text-gray-600">
-                        <li>&#10003; Полностью индивидуальная программа</li>
-                        <li>&#10003; Максимальная гибкость графика</li>
-                        <li>&#10003; Упор на ваш карьерный запрос</li>
-                        <li class="line-through opacity-60">Доступ к групповым симуляциям</li>
+                        <li>&#10003; Fully personalized program</li>
+                        <li>&#10003; Maximum schedule flexibility</li>
+                        <li>&#10003; Focus on your career goals</li>
+                        <li class="line-through opacity-60">Access to group simulations</li>
                     </ul>
                     <a href="#contact" class="inline-block w-full font-semibold btn-gradient text-white py-3 rounded-lg shadow-md btn-hover">
-                        Записаться
+                        Join Now
                     </a>
                 </div>
 
-                <!-- Тариф 2: Мини-группа (Рекомендованный) -->
-                <div class="bg-white text-gray-800 p-8 rounded-xl shadow-2xl border-t-4 border-custom-accent-strong transform hover:scale-105 transition duration-300 relative ring-4 ring-custom-accent-strong">
+                <div class="bg-white text-gray-800 p-8 economist-card border-t-4 border-custom-accent-strong transform hover:scale-105 transition duration-300 relative ring-4 ring-custom-accent-strong">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-custom-accent-strong text-white text-xs font-bold py-1 px-4 rounded-full shadow-md">
-                        ХИТ
+                        BESTSELLER
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 text-custom-dark-primary">Мини-группа (3-5 чел)</h3>
-                    <p class="text-4xl font-extrabold mb-6">18$ <span class="text-lg font-normal">/ 60 мин</span></p>
+                    <h3 class="text-2xl font-bold mb-4 text-custom-dark-primary">Mini Group (3 to 5 people)</h3>
+                    <p class="text-4xl font-extrabold mb-6">18$ <span class="text-lg font-normal">/ 60 min</span></p>
                     <ul class="text-left space-y-3 mb-8 text-gray-600">
-                        <li>&#10003; Оптимальный баланс цены и качества</li>
-                        <li>&#10003; Максимум разговорной практики</li>
-                        <li>&#10003; Доступ к командным симуляциям</li>
-                        <li>&#10003; Живое общение и нетворкинг</li>
+                        <li>&#10003; Strong balance of value and quality</li>
+                        <li>&#10003; Maximum speaking practice</li>
+                        <li>&#10003; Access to team simulations</li>
+                        <li>&#10003; Real interaction and networking</li>
                     </ul>
                     <a href="#contact" class="inline-block w-full font-semibold btn-gradient text-white py-3 rounded-lg shadow-md btn-hover">
-                        Выбрать
+                        Choose This Plan
                     </a>
                 </div>
 
-                <!-- Тариф 3: Групповой (5+ чел) -->
-                <div class="bg-white text-gray-800 p-8 rounded-xl shadow-2xl border-t-4 border-custom-accent-strong transform hover:scale-105 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-4 accent-text-secondary">Групповой (5+ чел)</h3>
-                    <p class="text-4xl font-extrabold mb-6">12$ <span class="text-lg font-normal">/ 60 мин</span></p>
+                <div class="bg-white text-gray-800 p-8 economist-card border-t-4 border-custom-accent-strong transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-bold mb-4 accent-text-secondary">Group (5+ people)</h3>
+                    <p class="text-4xl font-extrabold mb-6">12$ <span class="text-lg font-normal">/ 60 min</span></p>
                     <ul class="text-left space-y-3 mb-8 text-gray-600">
-                        <li>&#10003; Самый доступный вариант</li>
-                        <li>&#10003; Широкий круг общения</li>
-                        <li>&#10003; Отлично подходит для уровней B1-C1</li>
-                        <li class="line-through opacity-60">Полная индивидуальная адаптация</li>
+                        <li>&#10003; Most budget-friendly option</li>
+                        <li>&#10003; Wider communication circle</li>
+                        <li>&#10003; Great for B1 to C1 levels</li>
+                        <li class="line-through opacity-60">Full individual adaptation</li>
                     </ul>
                     <a href="#contact" class="inline-block w-full font-semibold btn-gradient text-white py-3 rounded-lg shadow-md btn-hover">
-                        Узнать расписание
+                        View Schedule
                     </a>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- 7. Секция Слот-Машины (Game) - НОВАЯ СЕКЦИЯ -->
-    <section class="py-16 md:py-24 bg-white" id="game">
+    <section class="py-16 md:py-24 bg-white economist-rule" id="game">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold mb-4 accent-text-secondary">
-                Поймай свой гарантированный бонус!
+                Catch Your Guaranteed Bonus!
             </h2>
             <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-                Нажми "Испытать удачу", чтобы мгновенно выиграть один из пяти крутых призов. Бонус можно получить только **один раз**!
+                Click “Try Your Luck” to instantly win one of five great prizes. The bonus can only be claimed <strong>once</strong>.
             </p>
 
-            <div class="section-bg-secondary p-8 rounded-xl shadow-2xl max-w-lg mx-auto">
-                <!-- Слот-Машина -->
+            <div class="section-bg-secondary p-8 economist-card max-w-lg mx-auto">
                 <div id="slot-machine" class="flex justify-center mb-6 border-4 border-gray-100 rounded-lg p-2 primary-bg">
                     <div id="reel1" class="slot-reel">&#128184;</div>
                     <div id="reel2" class="slot-reel">&#128184;</div>
                     <div id="reel3" class="slot-reel">&#128184;</div>
                 </div>
 
-                <!-- Кнопка и Результат -->
                 <button id="spin-button" class="w-full font-semibold btn-gradient text-white py-3 rounded-lg shadow-md btn-hover text-lg">
-                    Испытать Удачу!
+                    Try Your Luck!
                 </button>
-                
+
                 <p id="result-message" class="mt-6 text-lg font-bold text-white min-h-[30px] transition duration-500">
-                    Нажмите, чтобы начать!
+                    Click to begin!
                 </p>
                 <a id="claim-link" href="#contact" class="hidden inline-block mt-4 text-sm font-semibold accent-strong-bg text-white py-2 px-6 rounded-full btn-hover">
-                    Забрать Бонус!
+                    Claim Your Bonus!
                 </a>
             </div>
-            
         </div>
     </section>
 
-    <!-- 8. Секция Корпоративных Занятий (Corporate) -->
-    <section class="py-16 md:py-24 bg-gray-100" id="corporate">
+    <section class="py-16 md:py-24 bg-[var(--color-paper)] economist-rule" id="corporate">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-6">
-                Корпоративное обучение: Результат для вашей команды
+                Corporate Training: Results for Your Team
             </h2>
             <p class="text-xl text-center mb-12 text-gray-700 max-w-3xl mx-auto">
-                Обучение, разработанное специально для повышения эффективности коммуникации внутри компании и с внешними партнерами.
+                Training designed to improve communication inside your company and with external partners.
             </p>
-            
+
             <div class="flex flex-col md:flex-row gap-8">
-                <!-- Преимущества -->
                 <div class="md:w-1/2 space-y-6">
-                    <div class="p-6 bg-white rounded-lg border-l-4 border-custom-dark-primary shadow-sm">
-                        <h4 class="text-xl font-semibold accent-text-secondary mb-2">&#128176; Экономия и Удобство</h4>
-                        <p class="text-gray-700">Оптимизированные цены и график занятий, интегрированный в ваш рабочий процесс.</p>
+                    <div class="p-6 bg-white economist-card border-l-4 border-custom-dark-primary">
+                        <h4 class="text-xl font-semibold accent-text-secondary mb-2">&#128176; Efficiency and Convenience</h4>
+                        <p class="text-gray-700">Optimized pricing and schedules that fit smoothly into your workflow.</p>
                     </div>
                     <div class="p-6 bg-white rounded-lg border-l-4 border-custom-dark-primary shadow-sm">
-                        <h4 class="text-xl font-semibold accent-text-secondary mb-2">&#128279; Программа под KPIs</h4>
-                        <p class="text-gray-700">Фокус на лексике и сценариях, необходимых для достижения ключевых показателей эффективности (KPIs) вашей отрасли.</p>
+                        <h4 class="text-xl font-semibold accent-text-secondary mb-2">&#128279; Program Built Around KPIs</h4>
+                        <p class="text-gray-700">Vocabulary and scenarios tailored to the goals and metrics that matter in your industry.</p>
                     </div>
                     <div class="p-6 bg-white rounded-lg border-l-4 border-custom-dark-primary shadow-sm">
-                        <h4 class="text-xl font-semibold accent-text-secondary mb-2">&#128104;&#8205;&#128187; Отчетность</h4>
-                        <p class="text-gray-700">Регулярные отчеты о прогрессе каждого сотрудника и группы.</p>
+                        <h4 class="text-xl font-semibold accent-text-secondary mb-2">&#128104;&#8205;&#128187; Progress Reporting</h4>
+                        <p class="text-gray-700">Regular updates on the progress of each employee and the team as a whole.</p>
                     </div>
                 </div>
 
-                <!-- CTA -->
-                <div class="md:w-1/2 section-bg-secondary text-white p-8 rounded-xl shadow-2xl flex flex-col justify-between">
+                <div class="md:w-1/2 bg-white text-gray-900 p-8 economist-card flex flex-col justify-between">
                     <div>
-                        <h3 class="text-3xl font-bold mb-4">Начните с бесплатной консультации</h3>
+                        <h3 class="text-3xl font-bold mb-4">Start with a Free Consultation</h3>
                         <p class="text-lg text-gray-200 mb-6">
-                            Расскажите нам о задачах вашей компании, и мы разработаем пилотную программу за 48 часов.
+                            Tell us about your company’s goals, and we will design a pilot program within 48 hours.
                         </p>
                     </div>
                     <a href="#contact" class="inline-block w-full text-center font-semibold btn-gradient text-white py-3 px-8 rounded-lg shadow-md btn-hover">
-                        Запросить коммерческое предложение
+                        Request a Proposal
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 9. Секция Отзывов -->
-    <section class="py-16 md:py-24 primary-bg" id="reviews">
+    <section class="py-16 md:py-24 primary-bg economist-rule" id="reviews">
         <div class="max-w-5xl mx-auto px-6 text-white">
             <h2 class="text-4xl font-bold text-center mb-12">
-                Что говорят наши студенты?
+                What Do Our Students Say?
             </h2>
             <div class="space-y-8">
-                <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-custom-accent-strong">
-                    <p class="italic text-gray-700">"Благодаря этому курсу я прошел собеседование в американскую компанию и получил повышение. Упор на реальные бизнес-сценарии - это то, что нужно!"</p>
-                    <p class="mt-4 font-semibold text-gray-800">- Кирилл П., Проектный Менеджер</p>
+                <div class="bg-white text-gray-800 p-6 economist-card border-l-4 border-custom-accent-strong">
+                    <p class="italic text-gray-700">“Thanks to this course, I passed an interview with an American company and got promoted. The focus on real business scenarios is exactly what I needed.”</p>
+                    <p class="mt-4 font-semibold text-gray-800">Kirill P., Project Manager</p>
                 </div>
-                <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-custom-secondary-dark">
-                    <p class="italic text-gray-700">"Переговоры с иностранными партнерами перестали быть стрессом. Преподаватель идеально адаптировал программу под мою сферу (FinTech)."</p>
-                    <p class="mt-4 font-semibold text-gray-800">- Елена В., Финансовый Аналитик</p>
+                <div class="bg-white text-gray-800 p-6 economist-card border-l-4 border-custom-secondary-dark">
+                    <p class="italic text-gray-700">“Negotiations with international partners stopped being stressful. The teacher adapted the program perfectly to my field in FinTech.”</p>
+                    <p class="mt-4 font-semibold text-gray-800">Elena V., Financial Analyst</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 10. Секция Контактов и CTA (Форма) -->
-    <section class="py-16 md:py-24 bg-white" id="contact">
+    <section class="py-16 md:py-24 bg-white economist-rule" id="contact">
         <div class="max-w-xl mx-auto px-6 text-gray-800 text-center">
             <h2 class="text-4xl font-bold mb-4">
-                Начните расти в карьере уже сегодня!
+                Start Growing Your Career Today!
             </h2>
             <p class="text-xl mb-8 text-gray-700">
-                Оставьте заявку, и мы обсудим вашу индивидуальную программу.
+                Leave your request, and we will discuss your individual learning program.
             </p>
 
-            <form class="bg-gray-100 p-8 rounded-xl shadow-2xl text-left space-y-4">
+            <form class="bg-[var(--color-paper)] p-8 economist-card text-left space-y-4">
                 <div>
-                    <label for="name" class="block text-gray-700 font-medium mb-2">Ваше Имя</label>
-                    <input type="text" id="name" placeholder="Иван Иванов" required
+                    <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                    <input type="text" id="name" placeholder="John Smith" required
                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-accent-strong focus:border-custom-accent-strong text-gray-800">
                 </div>
                 <div>
-                    <label for="email" class="block text-gray-700 font-medium mb-2">Ваш Email</label>
-                    <input type="email" id="email" placeholder="primer@email.com" required
+                    <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                    <input type="email" id="email" placeholder="example@email.com" required
                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-accent-strong focus:border-custom-accent-strong text-gray-800">
                 </div>
                 <div>
-                    <label for="goal" class="block text-gray-700 font-medium mb-2">Цель обучения (кратко)</label>
-                    <textarea id="goal" rows="3" placeholder="Подготовиться к презентации или собеседованию" required
+                    <label for="goal" class="block text-gray-700 font-medium mb-2">Learning Goal</label>
+                    <textarea id="goal" rows="3" placeholder="Prepare for a presentation or job interview" required
                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-custom-accent-strong focus:border-custom-accent-strong text-gray-800"></textarea>
                 </div>
                 <button type="submit" class="w-full btn-gradient text-white font-semibold py-3 rounded-lg btn-hover text-lg">
-                    Отправить Заявку
+                    Send Request
                 </button>
-                <p class="text-center text-sm text-gray-500 mt-4">Мы свяжемся с вами в течение 24 часов.</p>
+                <p class="text-center text-sm text-gray-500 mt-4">We will contact you within 24 hours.</p>
             </form>
-
         </div>
     </section>
 
-    <!-- 11. Футер (Подвал) -->
-    <footer class="bg-gray-900 text-white py-8">
+    <footer class="primary-bg text-white py-8 economist-rule">
         <div class="max-w-7xl mx-auto px-6 text-center text-sm">
-            <p>&copy; 2025 BusinessPro. Репетитор по Бизнес-английскому. Все права защищены.</p>
+            <p>&copy; 2025 BusinessPro. Business English Tutor. All rights reserved.</p>
             <p class="mt-2">
-                <a href="#" class="hover:text-custom-secondary-dark transition duration-300">Политика конфиденциальности</a> | 
+                <a href="#" class="hover:text-custom-secondary-dark transition duration-300">Privacy Policy</a> |
                 <a href="#" class="hover:text-custom-secondary-dark transition duration-300">Telegram</a> |
                 <a href="#" class="hover:text-custom-secondary-dark transition duration-300">WhatsApp</a>
             </p>
@@ -471,7 +467,6 @@
     </footer>
 
     <script>
-        // Игровая логика Слот-машины
         document.addEventListener('DOMContentLoaded', () => {
             const spinButton = document.getElementById('spin-button');
             const resultMessage = document.getElementById('result-message');
@@ -482,83 +477,69 @@
                 document.getElementById('reel3')
             ];
 
-            // 5 вариантов призов и соответствующие эмодзи
             const prizes = [
-                { emoji: '&#128184;', text: 'Скидка 10% на первый месяц' },    // Money Bag
-                { emoji: '&#127881;', text: 'Бесплатный вводный урок' },     // Confetti Popper
-                { emoji: '&#127942;', text: 'Скидка 10% на полный курс' },     // Trophy
-                { emoji: '&#129505;', text: 'Неделя AI-тренажера бесплатно' }, // Brain
-                { emoji: '&#128218;', text: 'Книга по Business English (PDF)' } // Open Book
+                { emoji: '&#128184;', text: '10% off your first month' },
+                { emoji: '&#127881;', text: 'Free trial lesson' },
+                { emoji: '&#127942;', text: '10% off the full course' },
+                { emoji: '&#129505;', text: 'One week of AI practice tools for free' },
+                { emoji: '&#128218;', text: 'Business English e-book (PDF)' }
             ];
 
-            // Флаг, который предотвращает повторное использование
             let isSpinning = false;
-            let hasWon = false; // Используем localStorage для реального ограничения
+            let hasWon = false;
 
-            // Проверка, использовал ли пользователь слот ранее
             if (localStorage.getItem('slotMachineUsed') === 'true') {
                 hasWon = true;
                 spinButton.disabled = true;
-                spinButton.textContent = 'Бонус уже получен!';
-                resultMessage.innerHTML = 'Вы уже воспользовались своим бонусом.';
+                spinButton.textContent = 'Bonus Already Claimed!';
+                resultMessage.innerHTML = 'You have already used your bonus.';
                 resultMessage.classList.add('text-custom-accent-strong');
             }
 
-            // Функция для рандомного выбора символа
             const getRandomEmoji = () => {
                 const index = Math.floor(Math.random() * prizes.length);
                 return prizes[index].emoji;
             };
 
-            // Функция для симуляции вращения
             const spinReel = (reel, duration) => {
                 return new Promise(resolve => {
                     const startTime = Date.now();
                     const interval = setInterval(() => {
-                        // Меняем эмодзи во время вращения
-                        reel.innerHTML = getRandomEmoji(); 
-
+                        reel.innerHTML = getRandomEmoji();
                         if (Date.now() - startTime > duration) {
                             clearInterval(interval);
-                            resolve(); // Завершаем промис, когда время вышло
+                            resolve();
                         }
-                    }, 50); // Частота смены символов
+                    }, 50);
                 });
             };
 
-            // Основная функция запуска игры
             const spin = async () => {
                 if (isSpinning || hasWon) return;
 
                 isSpinning = true;
                 spinButton.disabled = true;
-                spinButton.textContent = 'Крутим...';
-                resultMessage.textContent = 'Удача уже близко!';
+                spinButton.textContent = 'Spinning...';
+                resultMessage.textContent = 'Your prize is on the way!';
                 claimLink.classList.add('hidden');
-                
-                // 1. Выбираем гарантированный приз
+
                 const winningPrize = prizes[Math.floor(Math.random() * prizes.length)];
-                
-                // 2. Запускаем вращение всех барабанов с разными задержками
+
                 await Promise.all([
                     spinReel(reels[0], 1000).then(() => reels[0].innerHTML = winningPrize.emoji),
                     spinReel(reels[1], 1500).then(() => reels[1].innerHTML = winningPrize.emoji),
                     spinReel(reels[2], 2000).then(() => reels[2].innerHTML = winningPrize.emoji),
                 ]);
 
-                // 3. Результат
                 isSpinning = false;
                 hasWon = true;
-                localStorage.setItem('slotMachineUsed', 'true'); // Сохраняем использование
-                
-                spinButton.textContent = 'ПОЗДРАВЛЯЕМ!';
+                localStorage.setItem('slotMachineUsed', 'true');
+
+                spinButton.textContent = 'CONGRATULATIONS!';
                 spinButton.classList.remove('btn-gradient');
                 spinButton.classList.add('bg-custom-secondary-dark');
 
-                // Выводим сообщение о выигрыше
-                resultMessage.innerHTML = `<span class="text-custom-accent-strong">&#127881;</span> Ваш приз: ${winningPrize.text} <span class="text-custom-accent-strong">&#127881;</span>`;
-                
-                // Показываем ссылку для получения приза
+                resultMessage.innerHTML = `<span class="text-custom-accent-strong">&#127881;</span> Your prize: ${winningPrize.text} <span class="text-custom-accent-strong">&#127881;</span>`;
                 claimLink.classList.remove('hidden');
             };
 
